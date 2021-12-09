@@ -1,0 +1,24 @@
+{
+  "games": [
+    {
+      "id": 345,
+      "title": "GambleGalore",
+      "price": 5.99,
+      "game_number": 78,
+      "percent_unsold": 67.9,
+      "total_unclaimed": 10.1,
+      "top_prize": 100000,
+      "top_prizes_unclaimed": 6
+    },
+    {
+      "id": 347,
+      "title": "ScornScratcher",
+      "price": 11.99,
+      "game_number": 100,
+      "percent_unsold": 50.5,
+      "total_unclaimed": 99.5,
+      "top_prize": 1000000,
+      "top_prizes_unclaimed": 16
+    }
+  ]
+}
