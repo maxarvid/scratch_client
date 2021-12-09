@@ -15,7 +15,7 @@ const GameTable = () => {
   }, []);
 
   return (
-    <Table data-cy="games-table">
+    <Table>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Game</Table.HeaderCell>
@@ -23,7 +23,7 @@ const GameTable = () => {
           <Table.HeaderCell>Game Number</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      <Table.Body>
+      <Table.Body data-cy="games-table">
         {games?.map(({ id, title, price, game_number }) => (
           <Table.Row key={id}>
             <Table.Cell>{title}</Table.Cell>
