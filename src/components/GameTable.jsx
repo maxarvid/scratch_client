@@ -3,13 +3,11 @@ import axios from "axios";
 import { Table } from "semantic-ui-react";
 
 const GameTable = () => {
-  const [games, setGames] = useState([]);
-  const [columnNames, setColumnNames] = useState([]);
+  const [games, setGames] = useState();
 
   const getGames = async () => {
     let response = await axios.get("/api/games");
     setGames(response.data.games);
-    setColumnNames(Object.keys(response.data.games[0]));
   };
 
   useEffect(() => {
@@ -20,12 +18,20 @@ const GameTable = () => {
     <Table data-cy="games-table">
       <Table.Header>
         <Table.Row>
-          {columnNames.map((column, index) => {
-            return <Table.HeaderCell key={index}>{column}</Table.HeaderCell>;
-          })}
+          <Table.HeaderCell>Game</Table.HeaderCell>
+          <Table.HeaderCell>Price</Table.HeaderCell>
+          <Table.HeaderCell>Game Number</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      <Table.Body></Table.Body>
+      <Table.Body>
+        {games?.map(({ id, title, price, game_number }) => (
+          <Table.Row key={id}>
+            <Table.Cell>{title}</Table.Cell>
+            <Table.Cell>{price}</Table.Cell>
+            <Table.Cell>{game_number}</Table.Cell>
+          </Table.Row>
+        ))}
+      </Table.Body>
     </Table>
   );
 };
