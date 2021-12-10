@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Header } from "semantic-ui-react";
 import GameTable from "./components/GameTable";
+import ScraperButton from "./components/ScraperButton";
 
 const App = () => {
+  const [games, setGames] = useState();
+
   return (
     <Container>
       <Header
@@ -13,7 +16,8 @@ const App = () => {
       >
         Maine Scratch
       </Header>
-      <GameTable />
+      <GameTable games={games} setGames={setGames} />
+      <ScraperButton setGames={setGames} />
     </Container>
   );
 };

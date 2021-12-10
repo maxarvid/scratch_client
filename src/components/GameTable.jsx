@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { Table } from "semantic-ui-react";
 
-const GameTable = () => {
-  const [games, setGames] = useState();
-
-  const getGames = async () => {
-    let response = await axios.get("/api/games");
-    setGames(response.data.games);
-  };
-
+const GameTable = ({ games, setGames }) => {
   useEffect(() => {
+    const getGames = async () => {
+      let response = await axios.get("/api/games");
+      setGames(response.data.games);
+    };
     getGames();
-  }, []);
+  }, [setGames]);
 
   return (
     <Table>
