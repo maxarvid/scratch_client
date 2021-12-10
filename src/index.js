@@ -5,11 +5,7 @@ import axios from "axios";
 import reportWebVitals from "./reportWebVitals";
 import "semantic-ui-css/semantic.min.css";
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-  axios.defaults.baseURL = "http://localhost:3000";
-} else {
-  axios.defaults.baseURL = "https://peaceful-escarpment-09091.herokuapp.com";
-}
+axios.defaults.baseURL = process.env.REACT_APP_API_URI;
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
