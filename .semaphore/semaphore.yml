@@ -10,13 +10,13 @@ blocks:
       jobs:
         - name: Test
           commands:
+            - sem-version node 16.13.2
             - checkout
-            - sem-version node 12
-            - cache restore
-            - npm install
-            - cache store
-            - npm run build --if-present
-            - npm test
+            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter'
+            - chmod +x ./cc-test-reporter
+            - ./cc-test-reporter before-build
+            - yarn install
+            - 'yarn cypress:ci'
       env_vars:
         - name: CC_TEST_REPORTER_ID
           value: 74d4c39670b3e780773e4620419c3dc9b5ac3c1944e577327966a09fac05d9a7
